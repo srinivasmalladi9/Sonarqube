@@ -1,0 +1,13 @@
+sudo yum update –y
+sudo yum install java-11-amazon-corretto -y
+cd /opt
+sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.6.zip
+sudo unzip sonarqube-7.6.zip
+sudo mv sonarqube-7.6 sonarqube
+sudo vi /opt/sonarqube/conf/sonar.properties
+sudo useradd sonar
+sudo chown -R sonar:sonar /opt/sonarqube
+
+sudo su -sonar
+cd /opt/sonarqube/bin/linux-x86-64 
+./sonar.sh start
